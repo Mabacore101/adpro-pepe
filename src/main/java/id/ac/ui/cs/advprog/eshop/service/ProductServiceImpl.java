@@ -39,7 +39,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(String productId) {
+    public void deleteProduct(String productId) {
         productRepository.deleteProduct(productId);
     }
 }
