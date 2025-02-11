@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <title>Product List</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .btn-light-green {
+            background-color: #28a745; /* Green background */
+            border-color: #28a745;     /* Green border */
+            color: white;             /* White text */
+        }
+
+        .btn-light-green:hover {
+            background-color: #218838; /* Darker green for hover */
+            border-color: #1e7e34;    /* Matching border for hover */
+            color: white;              /* Keep the text white */
+        }
+    </style>
 </head>
 <body>
 
@@ -13,16 +26,20 @@
 
     <table border="1" class="table table-striped table-responsive-md">
         <thead>
-        <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
-        </tr>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Edit</th>
+            </tr>
         </thead>
         <tbody>
-        <tr th:each="product: ${products}">
-            <td th:text="${product.productName}"></td>
-            <td th:text="${product.productQuantity}"></td>
-        </tr>
+            <tr th:each="product: ${products}">
+                <td th:text="${product.productName}"></td>
+                <td th:text="${product.productQuantity}"></td>
+                <td>
+                    <a th:href="@{/product/edit/{productId}(productId=${product.productId})}" class="btn btn-light-green btn-sm">Edit</a>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
