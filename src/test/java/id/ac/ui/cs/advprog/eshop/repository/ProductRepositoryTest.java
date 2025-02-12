@@ -70,7 +70,54 @@ public class ProductRepositoryTest {
         savedProduct = productIterator.next();
         assertEquals(product2.getProductId(), savedProduct.getProductId());
         assertFalse(productIterator.hasNext());
+    }
 
+    @Test
+    void testEditProduct() {
+        Product originalProduct = new Product();
+        originalProduct.setProductId("b1c73f6a-bb3b-4d67-ae52-8bc6a90e9376");
+        originalProduct.setProductName("Ceobe Honey Biscuit");
+        originalProduct.setProductQuantity(10);
+        productRepository.create(originalProduct);
 
+        originalProduct.setProductName("Mumu Water");
+        originalProduct.setProductQuantity(5);
+        productRepository.updateProduct(originalProduct);
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+        Product updatedProduct = productIterator.next();
+
+        assertEquals(originalProduct.getProductId(), updatedProduct.getProductId());
+        assertEquals(originalProduct.getProductName(), updatedProduct.getProductName());
+        assertEquals(originalProduct.getProductQuantity(), updatedProduct.getProductQuantity());
+
+        assertNotEquals("Ceobe Honey Biscuits", updatedProduct.getProductName());
+        assertNotEquals(10, updatedProduct.getProductQuantity());
+    }
+
+    @Test
+    void testDeleteProduct() {
+        Product productToDelete = new Product();
+        productToDelete.setProductId("b1c73f6a-bb3b-4d67-ae52-8bc6a90e9376");
+        productToDelete.setProductName("Arturia Sock");
+        productToDelete.setProductQuantity(2);
+        productRepository.create(productToDelete);
+
+        productRepository.deleteProduct(productToDelete.getProductId());
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertFalse(productIterator.hasNext());
+
+        String nonExistentProductId = "a2d6b12f-3e7b-42b4-bf29-7f3f56de51f2";
+        productRepository.deleteProduct(nonExistentProductId);
+
+        int finalSize = 0;
+        productIterator = productRepository.findAll();
+        while (productIterator.hasNext()) {
+            finalSize++;
+            productIterator.next();
+        }
+
+        assertEquals(0, finalSize);
     }
 }
