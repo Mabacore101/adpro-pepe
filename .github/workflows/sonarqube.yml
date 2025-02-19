@@ -1,3 +1,4 @@
+
 name: Sonar Scan
 
 on:
@@ -25,8 +26,8 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v2
         with:
           args: >
-            -Dsonar.projectKey=greencrabby_skibidi-adpro
-            -Dsonar.organization=greencrabby
+            -Dsonar.projectKey=Mabacore101_adpro-pepe
+            -Dsonar.organization=mabacore101
             -Dsonar.sources=src/main/java
             -Dsonar.tests=src/test/java
             -Dsonar.java.binaries=build/classes/java/main
