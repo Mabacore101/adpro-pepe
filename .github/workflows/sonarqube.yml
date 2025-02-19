@@ -20,7 +20,11 @@ jobs:
       - name: Build Project
         run: ./gradlew build -x test
       - name: SonarQube Scan
-        uses: sonarsource/sonarcloud-github-action@v4.0.0
+        uses: sonarsource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -D sonar.sources=src
+            -D sonar.java.binaries=build/classes/java/main
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: 'https://sonarcloud.io/'
