@@ -17,8 +17,10 @@ jobs:
           cache: "gradle"
       - name: Make gradlew executable
         run: chmod +x gradlew
-      - name: Build Project (Run tests and collect coverage)
+      - name: Build Project
         run: ./gradlew build
+      - name: Run Tests
+        run: ./gradlew test
       - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@v2
         with:
