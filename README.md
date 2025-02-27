@@ -46,6 +46,7 @@ In this first exercise, I didn't any secure coding principles at all. This is be
 
 3) Answer to Question 2:
    There are a lot of advantages of using SOLID principle in a project. I'm going to list down three of them:
+   
    a) Better code readability and understandibility. This is true because the code in this project looks cleaner after applying SOLID principles. New commers can see what are the purposes of each file just by name. Besides that, the structure of the project is also clear so that everyone have no problem on locating a specific file.
    
    b) Improved testability. This is true because the code can be tested much easier since every thing is decoupled after applying SOLID principles.
@@ -54,6 +55,7 @@ In this first exercise, I didn't any secure coding principles at all. This is be
    
 5) Answer to Question 3:
    There are a lot of disadvantages of not using SOLID principle in a project. I'm going to list down three of them:
+   
    a) Decreased code reusability. The code in the project doesn't obey OCP principle from SOLID principle. This will make the code harder to extend because there's no interface to inherit for making a new module. The only way to make a new module is remaking the entire controller, repository, service, and model without a template. So, there's an overhead of remaking everything if we want to add a new feature.
    
    b) Increased risk of code duplication. The code in the project doesn't have a specific interface, so everything needs to be remade from scratch. This can cause increased risk of code duplication because no interfaces are available for a template besides the service package (even that one is too specific).
