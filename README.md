@@ -32,21 +32,30 @@ In this first exercise, I didn't any secure coding principles at all. This is be
 ### A. Reflection 1
 1) Answer to Question 1:
    From all the five S.O.L.I.D principles here is the list and explanation of whether I've implemented it or not in the project.
+   
    a) S (Single Responsibility Principle): I have applied Single Responsibility Principle (SRP) in the project by splitting CarController from ProductController. The original source coddde violates this by placing both classes in the same ProductController file. By splitting the classes into two separate files, SRP is obeyed noew because each file now have one purpose either a controller for product (ProductController) or a controller for car (CarController).
-   b) O (Open Closed Principle): I **haven't** applied Open Closed Principle (OCP) in the project. This is true because all the classes and interfaces in this project are special tailored for one thing which is product or car and never both. The code is closed to modification, but it's also closed to extension. If someone decides to extend the code, they will be faced with issues like overriding methods that aren't used. 
+   
+   b) O (Open Closed Principle): I **haven't** applied Open Closed Principle (OCP) in the project. This is true because all the classes and interfaces in this project are special tailored for one thing which is product or car and never both. The code is closed to modification, but it's also closed to extension. If someone decides to extend the code, they will be faced with issues like overriding methods that aren't used.
+   
    c) L (Liskov Substitution Principle): I **haven't** applied Liskov Substitution Principle (LSP) in the project. This is because I don't have an inheritance hierachy in my project. The codebase are separate for product and car. There's zero inheritance between those two types, so LSP isn't applied because there's no subclass to apply the behavior on. 
    d) I (Interface Segregation Principle): I have applied Interface Segregation Principle (ISP) in the project. This is because I have made 2 interfaces for service, one is for Car and one is for Product. This method will result in modularize code with CarServiceImpl only implementing CarService interface and ProductServiceImple implementing ProductService interface. This will prevent classes to implement unecessary methods from an Interface.
+   
    e) D (Dependency Inversion Principle): I have applied Dependency Inversion Principle (DIP) in the project. This is because I have made 2 interfaces for service, one for car and one for product. Then there's 2 separate classes, one implements the interface for car while the other one implements the interface for product. Besides service, the other part of the code doesn't really need an interface cause they are modular and independent from each other (no dependency on each other).
+   
    In conclusion, I've applied 3 out of 5 of S.O.L.I.D principles.
 
-2) Answer to Question 2:
+3) Answer to Question 2:
    There are a lot of advantages of using SOLID principle in a project. I'm going to list down three of them:
    a) Better code readability and understandibility. This is true because the code in this project looks cleaner after applying SOLID principles. New commers can see what are the purposes of each file just by name. Besides that, the structure of the project is also clear so that everyone have no problem on locating a specific file.
+   
    b) Improved testability. This is true because the code can be tested much easier since every thing is decoupled after applying SOLID principles.
+   
    c) Enhanced code evolution. After applying SOLID principles, the project is now easier to evolve. Everything is decoupled so that addition of features and new modules can be done without breaking the modularity of the project codebase.
    
-3) Answer to Question 3:
+5) Answer to Question 3:
    There are a lot of disadvantages of not using SOLID principle in a project. I'm going to list down three of them:
    a) Decreased code reusability. The code in the project doesn't obey OCP principle from SOLID principle. This will make the code harder to extend because there's no interface to inherit for making a new module. The only way to make a new module is remaking the entire controller, repository, service, and model without a template. So, there's an overhead of remaking everything if we want to add a new feature.
+   
    b) Increased risk of code duplication. The code in the project doesn't have a specific interface, so everything needs to be remade from scratch. This can cause increased risk of code duplication because no interfaces are available for a template besides the service package (even that one is too specific).
+   
    c) Decreased scalability and rigidity. The code in the project have decreased scalability and is rigid when new features are added. This is true because OCP is violated in this project. So, scaling up the project is much harder and rigid compare to a codebase where OCP is obeyed. 
