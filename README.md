@@ -69,9 +69,13 @@ In this first exercise, I didn't any secure coding principles at all. This is be
    
 2) Answer to Question 2:
    After finishing the tutorial, I'll reflect on whether my tests successfully followed F.I.R.S.T. principle or not.
+   
    a) Fast: All the tests are simple and straightforward, so reruning it again is fast and takes less than a minute.
+   
    b) Isolated/Independent: All the tests are isolated from each other, so that each test doesn't rely on other test and cause a test dependency that can cause difficulties in debuggin.
    c) Repeatable: All the tests are repeatable and can be runned over and over again without any changes in behavior.
+   
    d) Self-Validating: All the tests are self validating because they tell whether the code successfully passes it or not. Each tests have a clear assertion to pass the test.
+   
    e) Thorough/Timely: All the tests aer designed before programming which is highlighted in TDD. Besides that, the tests also cover happy and unhappy paths throughout the app.
    
