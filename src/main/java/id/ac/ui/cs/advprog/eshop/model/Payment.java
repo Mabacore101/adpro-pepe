@@ -50,7 +50,7 @@ public class Payment {
     }
 
     public void setMethod(String method) {
-        if (PaymentMethod.contains(method)) {
+        if (PaymentMethod.contains(method) || method.equals("BANKTRANSFER")) {
             this.method = method;
         }
         else {
@@ -67,6 +67,21 @@ public class Payment {
             else {
                 String voucherCode = paymentData.get("voucherCode");
                 if (!voucherCodeIsValid(voucherCode)) {
+                    this.status = PaymentStatus.REJECTED.getValue();
+                }
+                else {
+                    this.status = PaymentStatus.SUCCESS.getValue();
+                }
+            }
+        }
+        else if (this.method.equals("BANKTRANSFER")) {
+            if (!paymentData.containsKey("bankName") || !paymentData.containsKey("referenceCode")) {
+                this.status = PaymentStatus.REJECTED.getValue();
+            }
+            else {
+                String bankName = paymentData.get("bankName");
+                String referenceCode = paymentData.get("referenceCode");
+                if (bankName.isEmpty() || referenceCode.isEmpty()) {
                     this.status = PaymentStatus.REJECTED.getValue();
                 }
                 else {
