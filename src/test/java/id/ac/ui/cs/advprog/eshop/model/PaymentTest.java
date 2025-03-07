@@ -126,7 +126,7 @@ public class PaymentTest {
         paymentData.put("bankName", "BRI");
         paymentData.put("referenceCode", "A12345678XXX");
 
-        Payment payment = new Payment(order.getId(), "BANKTRANSFER", paymentData);
+        Payment payment = new Payment(order.getId(), PaymentMethod.BANKTRANSFER.getValue(), paymentData);
         assertEquals(PaymentStatus.SUCCESS.getValue(), payment.getStatus());
     }
 
@@ -135,7 +135,7 @@ public class PaymentTest {
         paymentData.clear();
         paymentData.put("referenceCode", "A12345678XXX");
 
-        Payment payment = new Payment(order.getId(), "BANKTRANSFER", paymentData);
+        Payment payment = new Payment(order.getId(), PaymentMethod.BANKTRANSFER.getValue(), paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 
@@ -144,7 +144,7 @@ public class PaymentTest {
         paymentData.clear();
         paymentData.put("bankName", "BRI");
 
-        Payment payment = new Payment(order.getId(), "BANKTRANSFER", paymentData);
+        Payment payment = new Payment(order.getId(), PaymentMethod.BANKTRANSFER.getValue(), paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 }

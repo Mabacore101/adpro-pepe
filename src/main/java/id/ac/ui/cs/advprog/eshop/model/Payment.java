@@ -50,7 +50,7 @@ public class Payment {
     }
 
     public void setMethod(String method) {
-        if (PaymentMethod.contains(method) || method.equals("BANKTRANSFER")) {
+        if (PaymentMethod.contains(method)) {
             this.method = method;
         }
         else {
@@ -74,7 +74,7 @@ public class Payment {
                 }
             }
         }
-        else if (this.method.equals("BANKTRANSFER")) {
+        else if (this.method.equals(PaymentMethod.BANKTRANSFER.getValue())) {
             if (!paymentData.containsKey("bankName") || !paymentData.containsKey("referenceCode")) {
                 this.status = PaymentStatus.REJECTED.getValue();
             }
