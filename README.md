@@ -60,4 +60,18 @@ In this first exercise, I didn't any secure coding principles at all. This is be
    
    b) Increased risk of code duplication. The code in the project doesn't have a specific interface, so everything needs to be remade from scratch. This can cause increased risk of code duplication because no interfaces are available for a template besides the service package (even that one is too specific).
    
-   c) Decreased scalability and rigidity. The code in the project have decreased scalability and is rigid when new features are added. This is true because OCP is violated in this project. So, scaling up the project is much harder and rigid compare to a codebase where OCP is obeyed. 
+   c) Decreased scalability and rigidity. The code in the project have decreased scalability and is rigid when new features are added. This is true because OCP is violated in this project. So, scaling up the project is much harder and rigid compare to a codebase where OCP is obeyed.
+
+## 4. Module 4
+### A. Reflection 1
+1) Answer to Question 1:
+   Based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), this TDD woerkflow is useful for me. At first, I feel that writing tasks first takes some time, especially when I have to think of multiple cases and how easy it is to overthink the functionality of a function. So, I've decided to just calm down and think of the basic functionality of the program and just follow the flow. Over time, I feel that writing tests first really pays off. This is true because the tests act like a safety net for the code and making sure that the code behaves as it should. After implementing the code and getting a green checkmark for tests passed, I just have to push to my repository and that feature is done. I can take a break after implementing each feature that passes the test without worrying too much. Besides that, the tests help me to understand what my code should do and what it shouldn't. This will help future contributors who will continue my project. In conclusion, TDD is useful and helps me implement a code that should behave as intended. 
+   
+2) Answer to Question 2:
+   After finishing the tutorial, I'll reflect on whether my tests successfully followed F.I.R.S.T. principle or not.
+   a) Fast: All the tests are simple and straightforward, so reruning it again is fast and takes less than a minute.
+   b) Isolated/Independent: All the tests are isolated from each other, so that each test doesn't rely on other test and cause a test dependency that can cause difficulties in debuggin.
+   c) Repeatable: All the tests are repeatable and can be runned over and over again without any changes in behavior.
+   d) Self-Validating: All the tests are self validating because they tell whether the code successfully passes it or not. Each tests have a clear assertion to pass the test.
+   e) Thorough/Timely: All the tests aer designed before programming which is highlighted in TDD. Besides that, the tests also cover happy and unhappy paths throughout the app.
+   
